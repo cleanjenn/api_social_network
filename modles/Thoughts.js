@@ -45,7 +45,7 @@ const ThoughtsSchema = new Schema(
             get:(createdAtVal) => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
         },
         username: {
-            tyoe:String,
+            type:String,
             required: true
         },
         reactions: [ReactionsSchema]
@@ -63,5 +63,5 @@ ThoughtsSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
 
-const thoughts = model('Thoughts', ThoughtsSchema);
-module.exports = thoughts;
+const Thoughts = model('Thoughts', ThoughtsSchema);
+module.exports = Thoughts;

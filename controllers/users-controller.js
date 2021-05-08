@@ -11,10 +11,9 @@ const usersController = {
     getAllUsers(req, res) {
         Users.find({})
         .populate({
-            path: 'thoughts',
-            select: '-__v'
-        })
-        .populate({
+                path: 'thoughts',
+                select: '-__v'})
+            .populate({
             path: 'friends',
             select: '-__v'
         })
@@ -26,7 +25,7 @@ const usersController = {
         });
     },
     //get a single user by ID 
-    getUsersById({params}, res) {
+    getUsersById({ params }, res) {
         Users.findOne({ _id: params.id })
         .populate({
             path: 'thoughts',
@@ -37,7 +36,7 @@ const usersController = {
             select: '-__v'
         })
         .select('-__v')
-        .then(dbUsersData=> {
+        .then(dbUsersData => {
             if (!dbUsersData) {
                 res.status(404).json({ message: 'No User has been found with this ID! '});
                 return;
@@ -49,15 +48,15 @@ const usersController = {
             res.status(400).json(err)
         })
     },
-    //Ability to update user by ID
+    //Update user by ID
     updateUsers({ params, body }, res) {
-        users.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+        Users.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUsersData => {
                 if (!dbUsersData) {
                     res.status(404).json({ message: 'No User has been found with this ID! '});
                     return;
                 }
-                res.json(dbUsersData);
+                res.json(dbUserData);
             })
             .catch(err => res.json(err))
     },

@@ -1,4 +1,3 @@
-const { json } = require('body-parser');
 const { Thoughts, Users } = require('../modles');
 
 const thoughtsController = {
@@ -71,7 +70,7 @@ const thoughtsController = {
         Thoughts.findOneAndDelete({ _id: params.id })
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
-                res.status(404),json({ message: 'No thoughts with this id found!' });
+                res.status(404).json({ message: 'No thoughts with this id found!' });
                 return;
             }
             res.json(dbThoughtsData);
