@@ -1,6 +1,6 @@
 # api_social_network
 
-https://cleanjenn.github.io/api_social_network/
+https://github.com/cleanjenn/api_social_network
 ## Mock Up
 ![Mockup-Giphy](https://media.giphy.com/media/XHXumQdPCTaDvB21KE/giphy.gif)
 ## Table of Contents 
